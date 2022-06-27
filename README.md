@@ -13,11 +13,11 @@
     - [x] e) Se debe poder eliminar cada elemento de la lista. Al eliminar cada
         elemento se debe mostrar una alerta de confirmación utilizando el componente “ion-alert”.
         
-- [] 2.  La aplicación debe utilizar los plugins de Capacitor***:
+- [ ] 2.  La aplicación debe utilizar los plugins de Capacitor***:
     
-    - [] a) Storage: para guardar en el almacenamiento local los datos buscados desde la API. Si ya existe la información en el almacenamiento local no se debe utilizar la API.
+    - [ ] a) Storage: para guardar en el almacenamiento local los datos buscados desde la API. Si ya existe la información en el almacenamiento local no se debe utilizar la API.
         
-    - [] b) Toast: al eliminar un elemento de la lista se debe mostrar un toast para notificar que el elemento fue exitosamente eliminado. También se debe mostrar un toast para notificar al usuario si hubo error en la consulta a la API
+    - [ ] b) Toast: al eliminar un elemento de la lista se debe mostrar un toast para notificar que el elemento fue exitosamente eliminado. También se debe mostrar un toast para notificar al usuario si hubo error en la consulta a la API
         
 - [x] 3.  La aplicación debe poder ejecutarse correctamente tanto en un navegador como en el emulador de Android Studio.
     
