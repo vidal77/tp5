@@ -14,7 +14,7 @@ import {
 import React from "react";
 import { useState } from "react";
 import axios from "axios";
-import { Toaster, toast } from "react-hot-toast";
+import { Toast } from "@capacitor/toast";
 
 const Home: React.FC = () => {
 	const [listItems, setListItems] = useState<any>([]);
@@ -43,7 +43,7 @@ const Home: React.FC = () => {
 				};
 
 				let pokemons = response.data.results;
-				console.log("obteniendo data axios", pokemons);
+				console.log("obteniendo pokemones axios", pokemons);
 
 				const lista: Array<Pokemon> = pokemons.map(
 					(p: Pokemon, index: React.Key) => {
@@ -70,20 +70,8 @@ const Home: React.FC = () => {
 			.catch((error) => {
 				console.log(error);
 				console.log("error al consultar api");
-				toast.error(
-					"Error al cargar los Pokemones, compruebe su conexion o intente nuevamente mas tarde",
-					{
-						style: {
-							border: "1px solid #9b9b9b",
-							padding: "16px",
-							color: "#cb3234",
-						},
-						iconTheme: {
-							primary: "#cb3234",
-							secondary: "#FFFAEE",
-						},
-						duration: 99999,
-					}
+				showToast(
+					"Error al cargar los Pokemones, compruebe su conexion o intente nuevamente mas tarde"
 				);
 			});
 	};
@@ -93,16 +81,12 @@ const Home: React.FC = () => {
 		console.log(listItems);
 		const NewArray = listItems.filter((item: any) => pok.id != item.key);
 		setListItems(NewArray);
-		toast.success("Pokemon eliminado exitosamente.", {
-			style: {
-				border: "1px solid #9b9b9b",
-				padding: "16px",
-				color: "#008000",
-			},
-			iconTheme: {
-				primary: "#008000",
-				secondary: "#FFFAEE",
-			},
+		showToast("Pokemon eliminado con exito");
+	};
+
+	const showToast = async (msg: string) => {
+		await Toast.show({
+			text: msg,
 		});
 	};
 
@@ -146,7 +130,6 @@ const Home: React.FC = () => {
 				</IonModal>
 				<IonList>{listItems}</IonList>
 			</IonContent>
-			<Toaster position="bottom-center" reverseOrder={false} />
 		</IonPage>
 	);
 };
